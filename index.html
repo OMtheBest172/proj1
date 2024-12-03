@@ -3,88 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birth Day!</title>
+    <title>Happy Birthday Mahi!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Lobster&display=swap" rel="stylesheet">
     <style>
         body {
             background-image: url('r.jpg');
             background-size: cover;
             background-position: center;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f8f8f8;
-            color: #333;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
             margin: 0;
             padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
+            text-align: center;
+            overflow-x: hidden;
         }
         h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 3rem;
+            text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
             color: #ff6f61;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-            
+            margin-top: 20px;
+            animation: slideIn 1s ease-out;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .photos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            animation: fadeIn 2s ease-out;
         }
         .photos img {
             width: 200px;
-            height: auto;
-            margin: 10px;
-            border-radius: 8px;
-            border: 7px double #e7339c;
-            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        .photos img:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px rgba(255, 105, 180, 0.5);
         }
         .paragraph {
-            
-            margin: 20px 0;
-            color :#f8f8f8;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin-top: 40px;
             border-radius: 10px;
-            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-            
+            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
+            animation: slideUp 1.5s ease-out;
         }
-        .photo3 {
-            width: auto;
-            height: 900px;
+        .paragraph p {
+            margin: 15px 0;
+            font-size: 1.2rem;
         }
-        .video-container {
-            display: inline-block;
-            border-width: 560;
-            border-radius: 8px;
-            border: 15px double #e7339c;
-          /* Change the color and size of the border as needed */
-        /*width: fit-content;*/
-         /*padding: 10px;  Optional: Adds some space between the iframe and the border */
-}
+        iframe {
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            margin-top: 30px;
+        }
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
-   
     <div class="container">
-        <h1 >Happy Birthday Day Mahi</h1>
+        <h1>Happy Birthday Mahi 🎉</h1>
         <div class="photos">
-            <img src="p01.jpg" alt="Photo 01">
-            <img src="p (5).jpg" alt="Photo 1">
-            <img src="p (4).jpg" alt="Photo 2">
-            <img src="p (1).jpg" alt="Photo 3" class = "photo3">
-            <img src="p (6).jpg" alt="Photo 4">
-            <img src="p (2).jpg" alt="Photo 5">
-           
-           
-          <!--  <img src="p (3).jpg" alt="Photo 6">-->
+            <img src="p01.jpg" alt="Photo 1">
+            <img src="p (5).jpg" alt="Photo 2">
+            <img src="p (4).jpg" alt="Photo 3">
+            <img src="p (1).jpg" alt="Photo 4" class="photo3">
+            <img src="p (6).jpg" alt="Photo 5">
+            <img src="p (2).jpg" alt="Photo 6">
         </div>
         <div class="paragraph">
-            <p style="font-weight: bold; text-decoration: underline; text-shadow: 
-            -1px -1px 0 #000,  
-             1px -1px 0 #000,
-            -1px  1px 0 #000,
-             1px  1px 0 #000;">Dear Madam Ji,</p>
-            <p style="text-shadow: 2px 2px #131313;">Since you came into my life, everything has been brighter and more beautiful✨. Your love and support mean the world to me, and I feel incredibly lucky to have you by my side.😌<br> </p>
-
-            <p style="box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);">I know we live far apart and I am really sorry sometimes that i really get busy with my studies and couldn't pay attention to you😔</p>
-            <p>Thank you for being my everything<br> Happy Girlfriend's Day!😉</p>
+            <p><strong>Dear Madam Ji,</strong></p>
+            <p>Since you came into my life, everything has been brighter and more beautiful✨. Your love and support mean the world to me, and I feel incredibly lucky to have you by my side.😌</p>
+            <p>I know we live far apart and I am really sorry sometimes that I get so busy with my studies and couldn't pay attention to you😔. Thank you for being my everything. <br> Happy Girlfriend's Day!😉</p>
             <p>This song really expresses my feelings😌</p>
         </div>
         <div class="video-container">
-        <iframe width="280" height="157" src="https://www.youtube.com/embed/uI926JKvNa0?si=K94ZeOIR0mDNLgxF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/uI926JKvNa0?si=K94ZeOIR0mDNLgxF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </div>
 </body>
