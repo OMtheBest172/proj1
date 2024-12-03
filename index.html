@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Lobster&display=swap" rel="stylesheet">
     <style>
         body {
-            background-image: url('r.jpg');
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.7), rgba(135, 206, 235, 0.7));
             background-size: cover;
             background-position: center;
             font-family: 'Roboto', sans-serif;
@@ -16,6 +16,8 @@
             padding: 0;
             text-align: center;
             overflow-x: hidden;
+            position: relative;
+            height: 100vh;
         }
         h1 {
             font-family: 'Lobster', cursive;
@@ -30,32 +32,26 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
         }
-        .photos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-            animation: fadeIn 2s ease-out;
-        }
-        .photos img {
-            width: 200px;
-            height: 200px;
+        .random-photo {
+            width: 300px;
+            height: 300px;
             object-fit: cover;
             border-radius: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+            box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+            margin: 30px auto;
+            transition: transform 0.5s ease, box-shadow 0.3s ease;
         }
-        .photos img:hover {
+        .random-photo:hover {
             transform: scale(1.1);
-            box-shadow: 0px 0px 15px rgba(255, 105, 180, 0.5);
+            box-shadow: 0px 0px 35px rgba(255, 105, 180, 0.7);
         }
         .paragraph {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7);
             padding: 20px;
             margin-top: 40px;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
             animation: slideUp 1.5s ease-out;
         }
@@ -79,14 +75,6 @@
                 opacity: 1;
             }
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
         @keyframes slideUp {
             from {
                 transform: translateY(50px);
@@ -94,6 +82,40 @@
             }
             to {
                 transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        /* Shape animations */
+        .circle {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(255, 105, 180, 0.4);
+            border-radius: 50%;
+            animation: moveCircle 5s infinite alternate;
+        }
+        .circle:nth-child(2) {
+            top: 30%;
+            left: 70%;
+            background-color: rgba(135, 206, 235, 0.4);
+            animation-duration: 4s;
+        }
+        .circle:nth-child(3) {
+            top: 60%;
+            left: 40%;
+            background-color: rgba(255, 223, 186, 0.4);
+            animation-duration: 6s;
+        }
+        /* Animation for floating circles */
+        @keyframes moveCircle {
+            0% {
+                transform: translateY(0);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-30px);
                 opacity: 1;
             }
         }
@@ -117,16 +139,15 @@
     </style>
 </head>
 <body>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
     <div class="container">
         <h1 id="birthday-message">Happy Birthday Mahi 🎉</h1>
-        <div class="photos">
-            <img src="p01.jpg" alt="Photo 1" onclick="openLightbox(this)">
-            <img src="p (5).jpg" alt="Photo 2" onclick="openLightbox(this)">
-            <img src="p (4).jpg" alt="Photo 3" onclick="openLightbox(this)">
-            <img src="p (1).jpg" alt="Photo 4" onclick="openLightbox(this)">
-            <img src="p (6).jpg" alt="Photo 5" onclick="openLightbox(this)">
-            <img src="p (2).jpg" alt="Photo 6" onclick="openLightbox(this)">
-        </div>
+        <!-- Random Photo -->
+        <img id="random-photo" class="random-photo" src="" alt="Random Photo">
+
         <div class="paragraph">
             <p><strong>Dear Madam Ji,</strong></p>
             <p>Since you came into my life, everything has been brighter and more beautiful✨. Your love and support mean the world to me, and I feel incredibly lucky to have you by my side.😌</p>
@@ -157,6 +178,13 @@
         }
         window.onload = typeMessage;
 
+        // Random Image Logic
+        const photos = [
+            "p01.jpg", "p (5).jpg", "p (4).jpg", "p (1).jpg", "p (6).jpg", "p (2).jpg"
+        ];
+        const randomIndex = Math.floor(Math.random() * photos.length);
+        document.getElementById("random-photo").src = photos[randomIndex];
+
         // Lightbox functionality for images
         function openLightbox(imgElement) {
             const lightbox = document.getElementById('lightbox');
@@ -168,17 +196,6 @@
         function closeLightbox() {
             document.getElementById('lightbox').style.display = 'none';
         }
-
-        // Scroll animations
-        window.addEventListener('scroll', () => {
-            const elements = document.querySelectorAll('.fadeInOnScroll');
-            elements.forEach((el) => {
-                const position = el.getBoundingClientRect();
-                if (position.top < window.innerHeight && position.bottom >= 0) {
-                    el.classList.add('fadeIn');
-                }
-            });
-        });
     </script>
 </body>
 </html>
