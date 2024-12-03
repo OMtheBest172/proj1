@@ -24,6 +24,7 @@
             color: #ff6f61;
             margin-top: 20px;
             animation: slideIn 1s ease-out;
+            white-space: nowrap;
         }
         .container {
             max-width: 1200px;
@@ -43,7 +44,8 @@
             height: 200px;
             object-fit: cover;
             border-radius: 15px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
         .photos img:hover {
             transform: scale(1.1);
@@ -95,18 +97,35 @@
                 opacity: 1;
             }
         }
+        /* Lightbox Styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.7);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Happy Birthday Mahi 🎉</h1>
+        <h1 id="birthday-message">Happy Birthday Mahi 🎉</h1>
         <div class="photos">
-            <img src="p01.jpg" alt="Photo 1">
-            <img src="p (5).jpg" alt="Photo 2">
-            <img src="p (4).jpg" alt="Photo 3">
-            <img src="p (1).jpg" alt="Photo 4" class="photo3">
-            <img src="p (6).jpg" alt="Photo 5">
-            <img src="p (2).jpg" alt="Photo 6">
+            <img src="p01.jpg" alt="Photo 1" onclick="openLightbox(this)">
+            <img src="p (5).jpg" alt="Photo 2" onclick="openLightbox(this)">
+            <img src="p (4).jpg" alt="Photo 3" onclick="openLightbox(this)">
+            <img src="p (1).jpg" alt="Photo 4" onclick="openLightbox(this)">
+            <img src="p (6).jpg" alt="Photo 5" onclick="openLightbox(this)">
+            <img src="p (2).jpg" alt="Photo 6" onclick="openLightbox(this)">
         </div>
         <div class="paragraph">
             <p><strong>Dear Madam Ji,</strong></p>
@@ -118,5 +137,48 @@
             <iframe width="560" height="315" src="https://www.youtube.com/embed/uI926JKvNa0?si=K94ZeOIR0mDNLgxF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Enlarged Image">
+    </div>
+
+    <script>
+        // Typing Effect for Heading
+        const message = "Happy Birthday Mahi 🎉";
+        let index = 0;
+        const heading = document.getElementById('birthday-message');
+        function typeMessage() {
+            if (index < message.length) {
+                heading.textContent += message.charAt(index);
+                index++;
+                setTimeout(typeMessage, 100); // Adjust speed here
+            }
+        }
+        window.onload = typeMessage;
+
+        // Lightbox functionality for images
+        function openLightbox(imgElement) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgElement.src;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Scroll animations
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.fadeInOnScroll');
+            elements.forEach((el) => {
+                const position = el.getBoundingClientRect();
+                if (position.top < window.innerHeight && position.bottom >= 0) {
+                    el.classList.add('fadeIn');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
